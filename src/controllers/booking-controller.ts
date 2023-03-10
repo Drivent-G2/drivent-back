@@ -12,6 +12,7 @@ export async function listBooking(req: AuthenticatedRequest, res: Response) {
       Room: booking.Room,
     });
   } catch (error) {
+    console.log(error);
     return res.sendStatus(httpStatus.NOT_FOUND);
   }
 }
@@ -20,13 +21,13 @@ export async function bookingRoom(req: AuthenticatedRequest, res: Response) {
   try {
     const { userId } = req;
 
-    const { roomId } = req.body;
-
-    if (!roomId) {
+    const { roomId, hotelId } = req.body;
+    
+    if (!roomId || !hotelId) {
       return res.sendStatus(httpStatus.BAD_REQUEST);
     }
 
-    const booking = await bookingService.bookingRoomById(userId, Number(roomId));
+    const booking = await bookingService.bookingRoomById(userId, Number(roomId), Number(hotelId));
 
     return res.status(httpStatus.OK).send({
       bookingId: booking.id,
