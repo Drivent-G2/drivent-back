@@ -3,6 +3,7 @@ import roomRepository from "@/repositories/room-repository";
 import bookingRepository from "@/repositories/booking-repository";
 import enrollmentRepository from "@/repositories/enrollment-repository";
 import tikectRepository from "@/repositories/ticket-repository";
+import hotelRepository from "@/repositories/hotel-repository";
 
 async function checkEnrollmentTicket(userId: number) {
   const enrollment = await enrollmentRepository.findWithAddressByUserId(userId);
@@ -44,6 +45,24 @@ async function bookingRoomById(userId: number, roomId: number) {
   return bookingRepository.create({ roomId, userId });
 }
 
+async function createBookingArr(Rooms: any) {
+  const roomIds = [];
+  for (let cont = 0; cont < Rooms.length; cont++) {
+    const bookings = await bookingRepository.findByRoomId(Rooms[cont].id);
+    roomIds.push({ id: Rooms[cont].id, guests: bookings.length });
+    if (cont === Rooms.length-1)
+      return roomIds;
+  }
+}
+
+async function getRoomsBookingByHotelId(userId: number, hotelId: number) {
+  const { Rooms } = await hotelRepository.findRoomsByHotelId(hotelId);
+
+  const roomIds = await createBookingArr(Rooms);
+
+  return roomIds;
+}
+
 async function changeBookingRoomById(userId: number, roomId: number) {
   await checkValidBooking(roomId);
   const booking = await bookingRepository.findByUserId(userId);
@@ -63,6 +82,7 @@ const bookingService = {
   bookingRoomById,
   getBooking,
   changeBookingRoomById,
+  getRoomsBookingByHotelId
 };
 
 export default bookingService;
