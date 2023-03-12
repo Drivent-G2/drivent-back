@@ -3,12 +3,12 @@ import dayjs from "dayjs";
 const prisma = new PrismaClient();
 
 async function main() {
-  const user = await prisma.user.create({
+/*   const user = await prisma.user.create({
     data:{
-      email: "aleatorio@gmail.com",
+      email: "aleatorio2@gmail.com",
       password: "aleatorio"
     }
-  })
+  }) */
   await prisma.hotel.createMany({
     data:[{
       name: "Victoria Hotel",
@@ -131,8 +131,6 @@ const RoomCaribeen = await prisma.room.createMany({
   },
 ]
 })
-
-
 
 
   let event = await prisma.event.findFirst();

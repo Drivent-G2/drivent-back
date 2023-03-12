@@ -4,11 +4,12 @@ import { Booking } from "@prisma/client";
 type CreateParams = Omit<Booking, "id" | "createdAt" | "updatedAt">;
 type UpdateParams = Omit<Booking, "createdAt" | "updatedAt">;
 
-async function create({ roomId, userId }: CreateParams): Promise<Booking> {
+async function create({ roomId, userId, hotelId }: {roomId: number, userId: number, hotelId: number}) {
   return prisma.booking.create({
     data: {
       roomId,
       userId,
+      hotelId
     }
   });
 }
@@ -35,7 +36,7 @@ async function findByUserId(userId: number) {
   });
 }
 
-async function upsertBooking({ id, roomId, userId }: UpdateParams) {
+async function upsertBooking({ id, roomId, userId, hotelId }: {id: number, roomId: number, userId: number, hotelId: number}) {
   return prisma.booking.upsert({
     where: {
       id,
@@ -43,9 +44,11 @@ async function upsertBooking({ id, roomId, userId }: UpdateParams) {
     create: {
       roomId,
       userId,
+      hotelId
     },
     update: {
       roomId,
+      hotelId
     }
   });
 }
