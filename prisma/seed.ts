@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 async function main() {
 /*   const user = await prisma.user.create({
     data:{
-      email: "aleatorio@gmail.com",
+      email: "aleatorio2@gmail.com",
       password: "aleatorio"
     }
   }) */
@@ -131,8 +131,6 @@ const RoomCaribeen = await prisma.room.createMany({
   },
 ]
 })
-
-
 
 
   let event = await prisma.event.findFirst();
