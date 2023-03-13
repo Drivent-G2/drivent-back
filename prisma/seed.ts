@@ -73,21 +73,21 @@ async function main() {
 await prisma.room.createMany({
   data:[{
     name: "1",
-    capacity: 1,
+    capacity: 2,
     hotelId: Number(MalibuHotel?.id)
   },
   {
     name: "2",
-    capacity: 1,
+    capacity: 3,
     hotelId: Number(MalibuHotel?.id)
   },
   {
     name: "3",
-    capacity: 2,
+    capacity: 1,
     hotelId: Number(MalibuHotel?.id)
   }, {
     name: "4",
-    capacity: 2,
+    capacity: 1,
     hotelId: Number(MalibuHotel?.id)
   }, {
     name: "5",
@@ -95,7 +95,7 @@ await prisma.room.createMany({
     hotelId: Number(MalibuHotel?.id)
   }, {
     name: "6",
-    capacity: 2,
+    capacity: 1,
     hotelId: Number(MalibuHotel?.id)
   },
 ]
@@ -109,12 +109,12 @@ const RoomCaribeen = await prisma.room.createMany({
   },
   {
     name: "2",
-    capacity: 1,
+    capacity: 2,
     hotelId: Number(CaribbenHotel?.id)
   },
   {
     name: "3",
-    capacity: 2,
+    capacity: 1,
     hotelId: Number(CaribbenHotel?.id)
   }, {
     name: "4",
@@ -122,11 +122,11 @@ const RoomCaribeen = await prisma.room.createMany({
     hotelId: Number(CaribbenHotel?.id)
   }, {
     name: "5",
-    capacity: 3,
+    capacity: 1,
     hotelId: Number(CaribbenHotel?.id)
   }, {
     name: "6",
-    capacity: 2,
+    capacity: 3,
     hotelId: Number(CaribbenHotel?.id)
   },
 ]
