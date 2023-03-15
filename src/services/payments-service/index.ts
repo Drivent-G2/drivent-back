@@ -52,7 +52,7 @@ export type CardPaymentParams = {
   name: string,
   expirationDate: Date,
   cvv: number
-}
+} 
 
 const paymentService = {
   getPaymentByTicketId,
