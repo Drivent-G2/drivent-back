@@ -12,15 +12,15 @@ async function main() {
   await prisma.hotel.createMany({
     data:[{
       name: "Victoria Hotel",
-      image: "https://www.google.com/imgres?imgurl=https%3A%2F%2Flirp.cdn-website.com%2F7f7b6d4f%2Fdms3rep%2Fmulti%2Fopt%2Ffachada%2B%25281%2529%2B%25281%2529-640w.jpg&imgrefurl=https%3A%2F%2Fwww.vitoriahoteis.com.br%2Fhotel-concept-campinas&tbnid=f92vTBnBJjHuYM&vet=12ahUKEwihlMKHzc_9AhXCMLkGHWURAEAQMygAegUIARC8AQ..i&docid=rexGFVhh8j1ApM&w=640&h=508&q=victoria%20hotel&ved=2ahUKEwihlMKHzc_9AhXCMLkGHWURAEAQMygAegUIARC8AQ"
+      image: "https://lirp.cdn-website.com/7f7b6d4f/dms3rep/multi/opt/fachada+%281%29+%281%29-640w.jpg"
     },
     {
       name: "Malibu Hotel",
-      image: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fassets.hyatt.com%2Fcontent%2Fdam%2Fhyatt%2Fhyattdam%2Fimages%2F2017%2F08%2F29%2F1013%2FGrand-Hyatt-Rio-de-Janeiro-P443-Pool.jpg%2FGrand-Hyatt-Rio-de-Janeiro-P443-Pool.16x9.jpg%3Fimwidth%3D1920&imgrefurl=https%3A%2F%2Fwww.hyatt.com%2Fpt-PT%2Fhotel%2Fbrazil%2Fgrand-hyatt-rio-de-janeiro%2Friogh&tbnid=KHMsP2i9M7leSM&vet=12ahUKEwjYm_7Yzc_9AhVZM7kGHYF1DJ0QMygFegUIARDnAQ..i&docid=xoemK_WASTLdHM&w=1920&h=1080&q=hotel%20&ved=2ahUKEwjYm_7Yzc_9AhVZM7kGHYF1DJ0QMygFegUIARDnAQ"
+      image: "https://www.ahstatic.com/photos/1276_ho_00_p_1024x768.jpg"
     },
     {
       name: "Caribben Hotel",
-      image: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia-cdn.tripadvisor.com%2Fmedia%2Fphoto-s%2F16%2F1a%2Fea%2F54%2Fhotel-presidente-4s.jpg&imgrefurl=https%3A%2F%2Fwww.tripadvisor.com.br%2FHotel_Review-g187525-d264506-Reviews-Hotel_Presidente-Benidorm_Costa_Blanca_Province_of_Alicante_Valencian_Country.html&tbnid=Cx0DZvuCBEn2sM&vet=12ahUKEwjYm_7Yzc_9AhVZM7kGHYF1DJ0QMygBegUIARDfAQ..i&docid=u1F_3dUAk_6DcM&w=550&h=367&q=hotel%20&ved=2ahUKEwjYm_7Yzc_9AhVZM7kGHYF1DJ0QMygBegUIARDfAQ"
+      image: "https://cdn.loewshotels.com/loewshotels.com-2466770763/cms/cache/v2/620d6d91270c8.jpg/1920x1080/fit/80/eb7551cd93224863612f7472c55d933f.jpg"
     }
   ]
   })
@@ -140,8 +140,8 @@ const RoomCaribeen = await prisma.room.createMany({
         title: "Driven.t",
         logoImageUrl: "https://files.driveneducation.com.br/images/logo-rounded.png",
         backgroundImageUrl: "linear-gradient(to right, #FA4098, #FFD77F)",
-        startsAt: dayjs().toDate(),
-        endsAt: dayjs().add(21, "days").toDate(),
+        startsAt: dayjs().toDate().toString(),
+        endsAt: dayjs().add(21, "days").toDate().toString(),
       },
     });
   }
