@@ -7,4 +7,5 @@ export * from "./payments-router";
 export * from "./hotels-router";
 export * from "./booking-router";
 export * from "./date-router";
+export * from "./auditory-router";
 
