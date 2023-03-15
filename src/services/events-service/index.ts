@@ -5,21 +5,26 @@ import { Event } from "@prisma/client";
 import dayjs from "dayjs";
 import { createClient } from "redis";
 
-const redis = createClient({
-  url: process.env.REDIS_URL
-});
+const redis = createClient();
 
 async function getFirstEvent(): Promise<GetFirstEventResult> {
-  //parte de funcionamento do redis:
   await redis.connect();
-
   const eventCache = await redis.get("event");
 
-  //
-  const event = await eventRepository.findFirst();
-  if (!event) throw notFoundError();
+  let eventFinded;
 
-  return exclude(event, "createdAt", "updatedAt");
+  if(!eventCache) {
+    const event = await eventRepository.findFirst();
+    if (!event) throw notFoundError();
+
+    eventFinded = exclude(event, "createdAt", "updatedAt");
+    await redis.set("event", JSON.stringify(eventFinded));
+  } else {
+    eventFinded = JSON.parse(eventCache);
+  }
+
+  await redis.quit();
+  return eventFinded;
 }
 
 export type GetFirstEventResult = Omit<Event, "createdAt" | "updatedAt">;
