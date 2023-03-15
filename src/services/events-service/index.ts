@@ -29,8 +29,8 @@ async function isCurrentEventActive(): Promise<boolean> {
   if (!event) return false;
 
   const now = dayjs();
-  const eventStartsAt = dayjs(event.startsAt);
-  const eventEndsAt = dayjs(event.endsAt);
+  const eventStartsAt = dayjs(event.startsAt.toString());
+  const eventEndsAt = dayjs(event.endsAt.toString());
 
   return now.isAfter(eventStartsAt) && now.isBefore(eventEndsAt);
 }
