@@ -69,6 +69,7 @@ async function getRoomsBookingByHotelId(userId: number, hotelId: number) {
 
   return roomIds;
 }
+//insert into "Booking"("userId", "roomId", "updatedAt", "hotelId") values(3, 2, now(), 1);
 
 async function changeBookingRoomById(userId: number, roomId: number) {
   const room = await checkValidBooking(roomId);
