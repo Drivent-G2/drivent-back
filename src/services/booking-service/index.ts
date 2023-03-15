@@ -20,19 +20,20 @@ async function checkEnrollmentTicket(userId: number) {
 async function checkValidBooking(roomId: number, hotelId?: number) {
   const room = await roomRepository.findById(roomId);
   const bookings = await bookingRepository.findByRoomId(roomId);
-  if(hotelId){
-    if(hotelId !== room.hotelId){
-      throw notFoundError()
+  if(hotelId) {
+    if(hotelId !== room.hotelId) {
+      throw notFoundError();
     }
   }
+
   if (!room) {
-    console.log("Aqui 2")
+    console.log("Aqui 2");
     throw notFoundError();
   }
   if (room.capacity <= bookings.length) {
     throw cannotBookingError();
   }
-  return room
+  return room;
 }
 
 async function getBooking(userId: number) {
@@ -46,7 +47,7 @@ async function getBooking(userId: number) {
 
 async function bookingRoomById(userId: number, roomId: number, hotelId: number) {
   await checkEnrollmentTicket(userId);
-  await checkValidBooking(roomId,hotelId);
+  await checkValidBooking(roomId, hotelId);
 
   return bookingRepository.create({ roomId, userId, hotelId });
 }
@@ -68,11 +69,11 @@ async function getRoomsBookingByHotelId(userId: number, hotelId: number) {
 
   return roomIds;
 }
+//insert into "Booking"("userId", "roomId", "updatedAt", "hotelId") values(3, 2, now(), 1);
 
 async function changeBookingRoomById(userId: number, roomId: number) {
   const room = await checkValidBooking(roomId);
   const booking = await bookingRepository.findByUserId(userId);
-  console.log()
 
   if (!booking || booking.userId !== userId) {
     throw cannotBookingError();

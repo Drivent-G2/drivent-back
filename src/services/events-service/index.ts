@@ -3,8 +3,19 @@ import eventRepository from "@/repositories/event-repository";
 import { exclude } from "@/utils/prisma-utils";
 import { Event } from "@prisma/client";
 import dayjs from "dayjs";
+import { createClient } from "redis";
+
+const redis = createClient({
+  url: process.env.REDIS_URL
+});
 
 async function getFirstEvent(): Promise<GetFirstEventResult> {
+  //parte de funcionamento do redis:
+  await redis.connect();
+
+  const eventCache = await redis.get("event");
+
+  //
   const event = await eventRepository.findFirst();
   if (!event) throw notFoundError();
 
