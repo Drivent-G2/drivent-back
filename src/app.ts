@@ -9,6 +9,7 @@ loadEnv();
 
 import { handleApplicationErrors } from "@/middlewares";
 import {
+  activityRouter,
   usersRouter,
   authenticationRouter,
   eventsRouter,
@@ -18,7 +19,7 @@ import {
   hotelsRouter,
   bookingRouter,
   dateRouter,
-  auditoryRouter
+  auditoryRouter,
 } from "@/routers";
 
 const app = express();
@@ -35,6 +36,7 @@ app
   .use("/hotels", hotelsRouter)
   .use("/booking", bookingRouter)
   .use("/date", dateRouter)
+  .use("/activity", activityRouter)
   .use("/auditory", auditoryRouter)
   .use(handleApplicationErrors);
 

@@ -12,10 +12,19 @@ async function getDate() {
   const date = await prisma.date.findMany();
   return date;
 }
+async function getDateById(dateId: number) {
+  const date = await prisma.date.findFirst({
+    where:{
+      id: dateId
+    }
+  });
+  return date;
+}
 
 const dateRepository = {
   createDate,
-  getDate
+  getDate,
+  getDateById
 };
 
 export default dateRepository;
