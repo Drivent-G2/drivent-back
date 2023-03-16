@@ -298,8 +298,8 @@ async function main() {
         title: "Driven.t",
         logoImageUrl: "https://files.driveneducation.com.br/images/logo-rounded.png",
         backgroundImageUrl: "linear-gradient(to right, #FA4098, #FFD77F)",
-        startsAt: dayjs().toDate().toString(),
-        endsAt: dayjs().add(21, "days").toDate().toString(),
+        startsAt: dayjs().toDate().toISOString(),
+        endsAt: dayjs().add(21, "days").toDate().toISOString(),
       },
     });
   }

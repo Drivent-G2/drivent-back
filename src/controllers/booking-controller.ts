@@ -10,6 +10,7 @@ export async function listBooking(req: AuthenticatedRequest, res: Response) {
     return res.status(httpStatus.OK).send({
       id: booking.id,
       Room: booking.Room,
+      Hotel: booking.Hotel
     });
   } catch (error) {
     console.log(error);
