@@ -12,8 +12,31 @@ async function getActivityBy(dateId: number) {
   return activity;
 }
 
+async function getActivityById(activityId:number){
+return await prisma.activity.findFirst({
+    where:{
+        id: activityId
+    }
+})
+}
+async function updateCapacity (activityId:number){
+await prisma.activity.update({
+    where:{
+        id: activityId
+    },
+    data:{
+        capacity:{
+            decrement: 1
+        }
+    }
+});
+
+}
+
 const activityRepository = {
-    getActivityBy
+    getActivityBy,
+    getActivityById,
+    updateCapacity
 };
 
 export default activityRepository;

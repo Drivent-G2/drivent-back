@@ -20,6 +20,7 @@ import {
   bookingRouter,
   dateRouter,
   auditoryRouter,
+  bookingActivityRouter
 } from "@/routers";
 
 const app = express();
@@ -38,6 +39,7 @@ app
   .use("/date", dateRouter)
   .use("/activity", activityRouter)
   .use("/auditory", auditoryRouter)
+  .use("/bookingActivity", bookingActivityRouter)
   .use(handleApplicationErrors);
 
 export function init(): Promise<Express> {
