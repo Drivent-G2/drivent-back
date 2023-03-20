@@ -65,12 +65,14 @@ async function main() {
     data: [{
       auditoryId: Number(lateral?.id),
       capacity: 100,
+      name: "Minecraft",
       dateId: Number(sexta?.id),
       endsAt: 600,
       startsAt: 540
     }, {
       auditoryId: Number(principal?.id),
       capacity: 30,
+      name: "Minecraft",
       dateId: Number(sexta?.id),
       endsAt: 600,
       startsAt: 540
@@ -78,6 +80,7 @@ async function main() {
     {
       auditoryId: Number(workshop?.id),
       capacity: 60,
+      name: "Minecraft",
       dateId: Number(sexta?.id),
       endsAt: 600,
       startsAt: 540
@@ -85,6 +88,7 @@ async function main() {
     {
       auditoryId: Number(lateral?.id),
       capacity: 50,
+      name: "Minecraft",
       dateId: Number(sexta?.id),
       endsAt: 720,
       startsAt: 600
@@ -92,6 +96,7 @@ async function main() {
     {
       auditoryId: Number(workshop?.id),
       capacity: 10,
+      name: "Minecraft",
       dateId: Number(sexta?.id),
       endsAt: 660,
       startsAt: 600
@@ -99,12 +104,14 @@ async function main() {
     {
       auditoryId: Number(lateral?.id),
       capacity: 100,
+      name: "Minecraft",
       dateId: Number(sabado?.id),
       endsAt: 600,
       startsAt: 540
     }, {
       auditoryId: Number(principal?.id),
       capacity: 30,
+      name: "Minecraft",
       dateId: Number(sabado?.id),
       endsAt: 600,
       startsAt: 540
@@ -112,6 +119,7 @@ async function main() {
     {
       auditoryId: Number(workshop?.id),
       capacity: 60,
+      name: "Minecraft",
       dateId: Number(sabado?.id),
       endsAt: 600,
       startsAt: 540
@@ -119,6 +127,7 @@ async function main() {
     {
       auditoryId: Number(lateral?.id),
       capacity: 50,
+      name: "Minecraft",
       dateId: Number(sabado?.id),
       endsAt: 720,
       startsAt: 600
@@ -126,6 +135,7 @@ async function main() {
     {
       auditoryId: Number(workshop?.id),
       capacity: 10,
+      name: "Minecraft",
       dateId: Number(sabado?.id),
       endsAt: 660,
       startsAt: 600
@@ -133,6 +143,7 @@ async function main() {
     {
       auditoryId: Number(lateral?.id),
       capacity: 100,
+      name: "Minecraft",
       dateId: Number(domingo?.id),
       endsAt: 600,
       startsAt: 540
@@ -141,11 +152,13 @@ async function main() {
       capacity: 30,
       dateId: Number(domingo?.id),
       endsAt: 600,
+      name: "Minecraft",
       startsAt: 540
     },
     {
       auditoryId: Number(workshop?.id),
       capacity: 60,
+      name: "Minecraft",
       dateId: Number(domingo?.id),
       endsAt: 600,
       startsAt: 540
@@ -153,6 +166,7 @@ async function main() {
     {
       auditoryId: Number(lateral?.id),
       capacity: 50,
+      name: "Minecraft",
       dateId: Number(domingo?.id),
       endsAt: 720,
       startsAt: 600
@@ -160,6 +174,7 @@ async function main() {
     {
       auditoryId: Number(workshop?.id),
       capacity: 10,
+      name: "Minecraft",
       dateId: Number(domingo?.id),
       endsAt: 660,
       startsAt: 600

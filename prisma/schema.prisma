@@ -158,6 +158,7 @@ model Auditory {
 model Activity {
   id              Int      @id @default(autoincrement())
   Date            Date     @relation(fields: [dateId], references: [id])
+  name            String
   dateId          Int
   Auditory        Auditory @relation(fields: [auditoryId], references: [id])
   auditoryId      Int
