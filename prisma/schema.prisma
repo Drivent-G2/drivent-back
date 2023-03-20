@@ -54,6 +54,8 @@ model Enrollment {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   Ticket    Ticket[]
+
+  @@index([userId])
 }
 
 model Address {
@@ -166,6 +168,8 @@ model Activity {
   endsAt           Int
   capacity        Int
   BookingActivity BookingActivity[] 
+
+  @@index([dateId])
 }
 model BookingActivity {
   id           Int      @id @default(autoincrement())
